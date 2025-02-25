@@ -9,6 +9,8 @@ class VimeoVideoPlayer extends StatelessWidget {
   ///
   /// [videoId] is required and cannot be empty
   final String videoId;
+  
+  final String? videoKey;
 
   /// Used to auto-play the video once initialized
   ///
@@ -91,6 +93,7 @@ class VimeoVideoPlayer extends StatelessWidget {
   VimeoVideoPlayer({
     super.key,
     required this.videoId,
+    this.videoKey,
     this.isAutoPlay = false,
     this.isLooping = false,
     this.isMuted = false,
@@ -197,6 +200,7 @@ class VimeoVideoPlayer extends StatelessWidget {
         '&muted=$isMuted'
         '&title=$showTitle'
         '&byline=$showByline'
+        '&h=$videoKey'
         '&controls=$showControls'
         '&dnt=$enableDNT';
   }
